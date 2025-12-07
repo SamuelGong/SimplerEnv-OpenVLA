@@ -74,11 +74,23 @@ And then:
 
 ```bash
 cd simpler_env
+unset DISPLAY  # to be safe on a headless box
 python main_inference.py \
   --policy-model openvla \
   --env-name GraspSingleOpenedCokeCanInScene-v0 \
-  --ckpt-path $HOME/vla-models/openvla-7b
-# Remember to adjust the ckpt_path if needed!
+  --ckpt-path $HOME/vla-models/openvla-7b \
+  --robot google_robot_static \
+  --policy-setup google_robot \
+  --scene-name google_pick_coke_can_1_v4
+
+# or
+python main_inference.py \
+  --policy-model openvla \
+  --env-name PutCarrotOnPlateInScene-v0 \
+  --ckpt-path $HOME/vla-models/openvla-7b \
+  --robot widowx \
+  --policy-setup widowx_bridge \
+  --scene-name bridge_table_1_v1
 ```
 
 **Remark**:
